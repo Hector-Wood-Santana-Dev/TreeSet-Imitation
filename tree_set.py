@@ -11,3 +11,7 @@ class TreeSet:
         self.root = None
 
     def insert(self, value):
+        if self.root is None:
+            self.root = Node(value)
+            return self.root
+
