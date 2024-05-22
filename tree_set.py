@@ -19,6 +19,8 @@ class TreeSet:
     def __init__(self):
         """Initialize the tree set."""
         self.TNULL = TreeNode(None, "black")
+        self.TNULL.left = self.TNULL
+        self.TNULL.right = self.TNULL
         self.root = self.TNULL
 
     def __rotate_left(self, x):
@@ -282,7 +284,9 @@ class TreeSet:
     def first(self):
         """Return the first node in the tree."""
         node = self.minimum(self.root)
-        return node.key if node != self.TNULL else None
+        if node == self.TNULL:
+            return None
+        return node.key
 
     def last(self):
         """Return the last node in the tree."""
